@@ -1,0 +1,21 @@
+{
+  "name": "tapkit-plugins-claude",
+  "owner": {
+    "name": "Jootsing Research",
+    "email": "tj@jootsing.ai"
+  },
+  "metadata": {
+    "description": "iPhone control and app navigation plugins for Claude Code",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "tapkit",
+      "source": "tapkit",
+      "description": "Control a physical iPhone from Claude Code. Take screenshots, tap, swipe, type, and navigate apps.",
+      "category": "integration",
+      "tags": ["ios", "iphone", "automation", "tapkit", "phone", "mobile"]
+    }
+  ]
+}
