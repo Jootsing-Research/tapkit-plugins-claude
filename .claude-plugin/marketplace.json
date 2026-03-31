@@ -12,7 +12,7 @@
   "plugins": [
     {
       "name": "tapkit",
-      "source": "tapkit",
+      "source": "./plugins/tapkit",
       "description": "Control a physical iPhone from Claude Code. Take screenshots, tap, swipe, type, and navigate apps.",
       "category": "integration",
       "tags": ["ios", "iphone", "automation", "tapkit", "phone", "mobile"]
