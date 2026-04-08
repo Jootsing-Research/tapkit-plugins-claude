@@ -9,8 +9,6 @@ You'll need the [TapKit Mac app](https://tapkit.ai) running with a connected iPh
 - **Claude Code (CLI):** [docs.tapkit.ai/integrations/claude-code](https://docs.tapkit.ai/integrations/claude-code)
 - **Claude desktop app:** [docs.tapkit.ai/integrations/claude-app](https://docs.tapkit.ai/integrations/claude-app)
 
-Verify by asking: *"Take a screenshot of my phone."*
-
 ## What You Get
 
 The **tapkit** plugin connects Claude to a real iPhone via [TapKit](https://tapkit.ai). Once installed, you can tell Claude things like:
