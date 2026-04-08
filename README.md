@@ -1,27 +1,19 @@
-# TapKit Plugin Marketplace for Claude Code
+# TapKit Plugin Marketplace for Claude
 
-Control a physical iPhone from Claude Code. Take screenshots, tap, swipe, type, and navigate apps — all through natural language.
+Control a physical iPhone from Claude. Take screenshots, tap, swipe, type, and navigate apps — all through natural language.
 
 ## Installation
 
-**Prerequisites:** [Claude Code](https://claude.ai/code), the TapKit Mac app running with a connected iPhone, and Switch Control enabled on the iPhone.
+You'll need the [TapKit Mac app](https://tapkit.ai) running with a connected iPhone (Switch Control enabled). Then follow the docs for whichever Claude you're using:
 
-1. Add the marketplace in Claude Code:
-   ```
-   /plugin marketplace add Jootsing-Research/tapkit-plugins-claude
-   ```
-2. Run `/plugin`, open the **Marketplaces** tab, select `tapkit-plugins-claude`, browse plugins, and enable **tapkit**.
-3. Run `/reload plugins`.
-4. Run `/mcp`, select **TapKit**, and choose **Authenticate** to sign in via the browser.
-5. Run `/exit` and restart Claude Code.
+- **Claude Code (CLI):** [docs.tapkit.ai/integrations/claude-code](https://docs.tapkit.ai/integrations/claude-code)
+- **Claude desktop app:** [docs.tapkit.ai/integrations/claude-app](https://docs.tapkit.ai/integrations/claude-app)
 
 Verify by asking: *"Take a screenshot of my phone."*
 
-Full instructions: [docs.tapkit.ai/integrations/claude-code](https://docs.tapkit.ai/integrations/claude-code)
-
 ## What You Get
 
-The **tapkit** plugin connects Claude Code to a real iPhone via [TapKit](https://tapkit.ai). Once installed, you can tell Claude things like:
+The **tapkit** plugin connects Claude to a real iPhone via [TapKit](https://tapkit.ai). Once installed, you can tell Claude things like:
 
 - "Take a screenshot of my phone"
 - "Open Settings and turn on Do Not Disturb"
@@ -34,17 +26,17 @@ The plugin ships with the [TapKit MCP server](https://github.com/Jootsing-Resear
 ## How It Works
 
 ```
-Claude Code  →  TapKit MCP Server  →  Physical iPhone
-   (you)        (mcp.tapkit.ai)        (your device)
+Claude  →  TapKit MCP Server  →  TapKit API  →  TapKit Mac App  →  iPhone
+ (you)      (mcp.tapkit.ai)       (cloud)        (your Mac)      (your device)
 ```
 
 Claude sees the phone screen through screenshots and interacts through tap/swipe/type commands. The core loop is always: **screenshot → look → act → screenshot to verify**.
 
 ## Requirements
 
-- [Claude Code](https://claude.ai/code) CLI or desktop app
+- [Claude Code](https://claude.ai/code) or the Claude desktop app
 - A TapKit account at [tapkit.ai](https://tapkit.ai)
-- A connected iPhone
+- The TapKit Mac app and a connected iPhone
 
 ## License
 
