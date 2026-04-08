@@ -39,9 +39,10 @@ The Discover feed shows one profile at a time as a scrollable card. Each profile
 Each photo and prompt has a **heart icon** in the top-right corner of that content piece. Tap it to like that specific photo or prompt — this is more engaging than a generic like.
 
 To **add a comment** on a specific photo or prompt:
-1. Tap the **"Add a comment"** text field below the content piece
-2. The keyboard appears — type your comment with `type_text`
-3. Tap **"done"** on the keyboard or look for a send button
+1. `copy_text_to_phone("your comment")` to load the text onto the clipboard
+2. `long_press(x, y, duration: 1500)` on the **"Add a comment"** text field below the content piece — this activates the field, brings up the keyboard, and shows the **Paste** tooltip
+3. Tap **"Paste"** in the tooltip
+4. Tap **"done"** on the keyboard or look for a send button
 
 **AI-suggested comment chips**: Hinge sometimes shows suggestion chips below prompts in the like panel (e.g., "Compare debate styles", "Ask her best comeback"). These are tappable shortcuts that auto-fill a comment. You can tap one to use it, or ignore them and type your own comment.
 
@@ -83,7 +84,7 @@ To **pass** on a profile:
 
 - Messages appear in a chat bubble layout (yours on right, theirs on left)
 - **Text input** is at the bottom of the screen
-- Tap the input field, type with `type_text`, then tap the **send button** (arrow icon, right side of input)
+- To send a message: `copy_text_to_phone("your message")` → `long_press(x, y, duration: 1500)` on the input field → tap **"Paste"** in the tooltip → tap the **send button** (arrow icon, right side of input)
 - You can also send GIFs, photos, and voice notes via icons near the input field
 - **To leave a conversation**: call `escape` to go back to the conversations list
 
@@ -112,7 +113,7 @@ Rules:
 1. screenshot → verify you're on Discover tab
 2. Scroll through the profile to see photos and prompts
 3. To like a specific photo/prompt: tap the heart icon on that content
-4. To add a comment: tap "Add a comment" field → type_text → send
+4. To add a comment: copy_text_to_phone("...") → long_press the "Add a comment" field (1500ms) → tap "Paste" → send
 5. To send a rose: tap the rose button (left side)
 6. To pass: keep scrolling past all content, next profile loads
 7. screenshot → verify next profile loaded
@@ -121,10 +122,11 @@ Rules:
 ### Send a Thoughtful Like (with comment)
 ```
 1. Scroll through profile to find a photo or prompt you want to comment on
-2. Tap "Add a comment" below that content
-3. type_text("your witty comment here")
-4. Tap send/done
-5. screenshot to verify the like was sent
+2. copy_text_to_phone("your witty comment here")
+3. long_press on "Add a comment" below that content (duration: 1500)
+4. Tap "Paste" in the tooltip
+5. Tap send/done
+6. screenshot to verify the like was sent
 ```
 
 ### Check and Respond to Matches
@@ -132,10 +134,11 @@ Rules:
 1. Tap the Matches tab (4th icon from left in the bottom tab bar)
 2. screenshot → see matches and conversations
 3. Tap on a conversation to open it
-4. Tap the message input field at the bottom
-5. type_text("your message")
-6. Tap send button
-7. screenshot to verify
+4. copy_text_to_phone("your message")
+5. long_press on the message input field at the bottom (duration: 1500)
+6. Tap "Paste" in the tooltip
+7. Tap send button
+8. screenshot to verify
 ```
 
 ## Tips and Gotchas

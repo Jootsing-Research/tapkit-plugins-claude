@@ -112,7 +112,7 @@ Opened by tapping the Comment button on a post. Appears as a bottom half-sheet t
   - **"Comment"** button (right, grayed out when empty, active when text entered)
 - Keyboard appears when text field is tapped
 
-To post a comment: tap the text field, type_text("your comment"), tap "Comment" button.
+To post a comment: `copy_text_to_phone("your comment")` → `long_press` the text field (1500ms) → tap "Paste" in the tooltip → tap "Comment" button.
 
 To dismiss: swipe down on the handle bar, or tap outside the sheet (above it on the post).
 
@@ -667,10 +667,11 @@ Divider
 ```
 1. Tap "Comment" button on the post
 2. screenshot → verify comment section opened as bottom sheet
-3. Tap "Leave your thoughts here..." text field
-4. type_text("your comment")
-5. Tap "Comment" button (right side of input area)
-6. screenshot → verify comment posted
+3. copy_text_to_phone("your comment")
+4. long_press on the "Leave your thoughts here..." text field (duration: 1500)
+5. Tap "Paste" in the tooltip that appears
+6. Tap "Comment" button (right side of input area)
+7. screenshot → verify comment posted
 ```
 
 ### Repost Content
@@ -694,29 +695,31 @@ Divider
 ```
 1. Tap the compose icon (pencil-in-square) in the top bar
 2. screenshot → verify composer opened
-3. Tap the text area ("Share your thoughts...")
-4. type_text("your post content")
-5. Optionally tap "Anyone" dropdown to change visibility
-6. Tap "Post" button (top-right)
-7. screenshot → verify post published
+3. copy_text_to_phone("your post content")
+4. long_press on the text area ("Share your thoughts...") (duration: 1500)
+5. Tap "Paste" in the tooltip that appears
+6. Optionally tap "Anyone" dropdown to change visibility
+7. Tap "Post" button (top-right)
+8. screenshot → verify post published
 ```
 
 ### Search for People
 ```
 1. Tap the Search bar in the top bar
 2. screenshot → verify search page appeared
-3. type_text("search query")
-4. screenshot → verify autocomplete suggestions
-5. Tap a suggestion or tap "Show all results"
-6. screenshot → verify results with People/Posts/Jobs tabs
-7. Tap "People" tab if needed, use filter pills (1st, 2nd, 3rd+)
+3. copy_text_to_phone("search query")
+4. long_press on the search field (duration: 1500) → tap "Paste" in the tooltip
+5. screenshot → verify autocomplete suggestions
+6. Tap a suggestion or tap "Show all results"
+7. screenshot → verify results with People/Posts/Jobs tabs
+8. Tap "People" tab if needed, use filter pills (1st, 2nd, 3rd+)
 ```
 
 ### Search for Jobs
 ```
 1. Tap the Jobs tab in the bottom bar
 2. Browse "Top job picks for you" section
-3. OR tap search bar → type_text("job title or company")
+3. OR: copy_text_to_phone("job title or company") → long_press the search bar (1500ms) → tap "Paste"
 4. screenshot → verify job results
 5. Tap a job card to view details
 ```
@@ -741,10 +744,11 @@ Divider
 ```
 1. Tap Messages icon (top-right) or "Message" button on a profile
 2. If in message list: tap a conversation or tap compose icon for new message
-3. Tap "Write a message..." text field
-4. type_text("your message")
-5. Tap send (or press return)
-6. screenshot → verify message sent
+3. copy_text_to_phone("your message")
+4. long_press on the "Write a message..." text field (duration: 1500)
+5. Tap "Paste" in the tooltip that appears
+6. Tap send (or press return)
+7. screenshot → verify message sent
 ```
 
 ### View a Profile

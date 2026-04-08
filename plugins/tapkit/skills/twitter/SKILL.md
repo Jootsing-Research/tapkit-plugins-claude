@@ -114,11 +114,12 @@ Globe dropdown (country selector), category cards, topic pills, "Popular today" 
 
 ### Search Flow
 
-1. Tap search bar → keyboard appears
-2. Type query with `type_text()`
-3. Autocomplete shows suggestions (keywords, topics, accounts)
-4. Tap "search" on keyboard for full results
-5. Results have tabs: Top, Latest, People, Videos, Photos
+1. `copy_text_to_phone("query")`
+2. Tap search bar → keyboard appears
+3. `long_press` the search field (~1500ms) → tap "Paste" in the tooltip
+4. Autocomplete shows suggestions (keywords, topics, accounts)
+5. Tap "search" on keyboard for full results
+6. Results have tabs: Top, Latest, People, Videos, Photos
 
 ### Search Result Tabs
 
@@ -241,40 +242,45 @@ Shows original post at top, "Replying to @handle", "Post your reply" placeholder
 
 ### Reply to a Post
 ```
-1. Tap the reply icon (speech bubble) on the engagement bar
-2. screenshot → verify reply compose with "Replying to @handle"
-3. type_text("your reply")
-4. Tap "Post" button (top-right)
-5. screenshot → verify reply posted
+1. copy_text_to_phone("your reply")
+2. Tap the reply icon (speech bubble) on the engagement bar
+3. screenshot → verify reply compose with "Replying to @handle"
+4. long_press on the reply text field (1500ms) → tap "Paste" in the tooltip
+5. Tap "Post" button (top-right)
+6. screenshot → verify reply posted
 ```
 
 ### Quote a Post
 ```
-1. Tap the repost icon on the engagement bar
-2. Tap "Quote" from the menu
-3. screenshot → verify quote compose with embedded post
-4. type_text("your comment")
-5. Tap "Post" button (top-right)
-6. screenshot → verify
+1. copy_text_to_phone("your comment")
+2. Tap the repost icon on the engagement bar
+3. Tap "Quote" from the menu
+4. screenshot → verify quote compose with embedded post
+5. long_press on the "Add a comment" field (1500ms) → tap "Paste" in the tooltip
+6. Tap "Post" button (top-right)
+7. screenshot → verify
 ```
 
 ### Compose a New Post
 ```
-1. Tap the blue "+" button (bottom-right)
-2. screenshot → verify compose screen
-3. type_text("your post")
-4. Tap "Post" button (top-right)
-5. screenshot → verify post published
+1. copy_text_to_phone("your post")
+2. Tap the blue "+" button (bottom-right)
+3. screenshot → verify compose screen
+4. long_press on the "What's happening?" text area (1500ms) → tap "Paste" in the tooltip
+5. Tap "Post" button (top-right)
+6. screenshot → verify post published
 ```
 
 ### Create a Thread
 ```
-1. Tap the blue "+" button
-2. type_text("First post")
-3. Tap the "+" thread button in toolbar
-4. screenshot → verify second compose area, button says "Post all"
-5. type_text("Second post")
-6. Tap "Post all" (top-right)
+1. copy_text_to_phone("First post")
+2. Tap the blue "+" button
+3. long_press on the text area (1500ms) → tap "Paste"
+4. Tap the "+" thread button in toolbar
+5. screenshot → verify second compose area, button says "Post all"
+6. copy_text_to_phone("Second post")
+7. long_press on the new text area (1500ms) → tap "Paste"
+8. Tap "Post all" (top-right)
 ```
 
 ### Create a Poll
@@ -282,19 +288,20 @@ Shows original post at top, "Replying to @handle", "Post your reply" placeholder
 1. Tap the blue "+" button
 2. Tap the Poll icon (bars) in toolbar
 3. screenshot → verify poll fields appeared
-4. type_text("Your question")
-5. Tap Choice 1 field → type_text("Option A")
-6. Tap Choice 2 field → type_text("Option B")
+4. copy_text_to_phone("Your question") → long_press the question field (1500ms) → tap "Paste"
+5. copy_text_to_phone("Option A") → long_press Choice 1 field (1500ms) → tap "Paste"
+6. copy_text_to_phone("Option B") → long_press Choice 2 field (1500ms) → tap "Paste"
 7. Tap "Post" (top-right)
 ```
 
 ### Search for Content
 ```
-1. Tap the Search icon in bottom nav
-2. Tap the search bar
-3. type_text("search query")
-4. Tap "search" on keyboard
-5. screenshot → verify results with Top/Latest/People/Videos/Photos tabs
+1. copy_text_to_phone("search query")
+2. Tap the Search icon in bottom nav
+3. Tap the search bar
+4. long_press the search field (1500ms) → tap "Paste" in the tooltip
+5. Tap "search" on keyboard
+6. screenshot → verify results with Top/Latest/People/Videos/Photos tabs
 ```
 
 ### View a Profile
@@ -307,7 +314,6 @@ Shows original post at top, "Replying to @handle", "Post your reply" placeholder
 
 ## Tips and Gotchas
 
-- **iOS Paste/AutoFill popup**: First `type_text()` in any text field may trigger a popup instead of typing. Dismiss by tapping elsewhere, re-tap field, type again.
 - **"For you" chevron vs tab**: Tapping the text switches feeds; tapping the small chevron to its right opens the topic filter — be precise.
 - **Engagement bar positions vary**: Always screenshot and visually locate icons before tapping.
 - **Scrolling**: Swipe up to scroll down, swipe down to scroll up.
@@ -321,5 +327,4 @@ Shows original post at top, "Replying to @handle", "Post your reply" placeholder
 - **Thread "+" button**: Only active after text is typed.
 - **Poll keyboard quirk**: After removing a poll, keyboard may still show "@"/"#" keys — dismiss and reopen keyboard.
 - **Quote cancel**: Shows draft prompt even with no comment typed (embedded quote counts as content).
-- **Phone selection may drop**: With multiple phones connected, re-run `select_phone` if you get a "Multiple phones connected" error.
 - **Swiping in compose**: May trigger keyboard swipe-to-type — avoid swipe gestures while keyboard is active.

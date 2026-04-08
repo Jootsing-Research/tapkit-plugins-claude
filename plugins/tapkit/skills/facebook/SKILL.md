@@ -211,9 +211,10 @@ Tapping **+** on the Home screen opens:
 ```
 1. Tap the Comment button on a post
 2. screenshot → verify comment input appeared
-3. type_text("your comment")
-4. Tap the send button
-5. screenshot → verify comment posted
+3. copy_text_to_phone("your comment")
+4. long_press on the comment field (duration: 1500) → tap "Paste" in the tooltip
+5. Tap the send button
+6. screenshot → verify comment posted
 ```
 
 ### Share a Story
@@ -228,8 +229,8 @@ Tapping **+** on the Home screen opens:
 ### Search for Content
 ```
 1. Tap the magnifying glass icon in the top bar
-2. Tap the search bar
-3. type_text("search query")
+2. copy_text_to_phone("search query")
+3. long_press on the search bar (duration: 1500) → tap "Paste" in the tooltip
 4. Tap "search" on keyboard
 5. screenshot → verify results
 ```
@@ -245,18 +246,17 @@ Tapping **+** on the Home screen opens:
 ```
 1. Tap the Messenger bubble in the top bar
 2. Tap a conversation or tap compose for new message
-3. type_text("your message")
-4. Tap send
-5. screenshot → verify message sent
+3. copy_text_to_phone("your message")
+4. long_press on the message field (duration: 1500) → tap "Paste" in the tooltip
+5. Tap send
+6. screenshot → verify message sent
 ```
 
 ## Tips and Gotchas
 
-- **iOS Paste/AutoFill popup**: First `type_text()` in any text field may trigger a popup instead of typing. Dismiss by tapping elsewhere, re-tap field, type again.
 - **Sponsored posts** appear in-feed marked with "Sponsored" label — be aware when scrolling.
 - **Scrolling**: Swipe up to scroll down, swipe down to scroll up.
 - **Back navigation**: Back arrow (top-left) or swipe right from left edge.
 - **Dismissing sheets/popups**: Tap dimmed area above, or swipe down on sheet handle.
 - **App loading**: May take 1-2 seconds after opening or switching tabs.
 - **Keyboard dismissal**: Tap non-interactive area above it.
-- **Phone selection may drop**: With multiple phones connected, re-run `select_phone` if you get a "Multiple phones connected" error.

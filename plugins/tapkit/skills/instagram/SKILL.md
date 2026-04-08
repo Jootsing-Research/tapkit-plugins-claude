@@ -218,14 +218,15 @@ Tapping the comment bubble opens a bottom sheet:
 - **Comment input bar**: "Join the conversation..."
 
 ### Writing a Comment
-1. Tap the comment input bar
-2. Type your comment with `type_text()`
-3. Tap the **blue send arrow** to post
+1. `copy_text_to_phone("your comment")`
+2. `long_press(x, y, duration: 1500)` on the comment input bar
+3. Tap **"Paste"** in the tooltip that appears
+4. Tap the **blue send arrow** to post
 
 ### Replying to a Comment
 1. Tap "Reply" on the comment
 2. Input changes to "Replying to [username]" with pre-filled @mention
-3. Type reply and tap blue send arrow
+3. `copy_text_to_phone("your reply")` → `long_press` the input → tap "Paste" → tap blue send arrow
 4. Tap "X" to cancel reply mode
 
 ### Liking Comments
@@ -276,10 +277,11 @@ Accessed via hamburger menu (≡) on Profile.
 ```
 1. Tap the comment bubble icon on a post
 2. screenshot → verify comments sheet opened
-3. Tap the "Join the conversation..." input bar
-4. type_text("your comment")
-5. Tap the blue send arrow
-6. screenshot → verify comment posted
+3. copy_text_to_phone("your comment")
+4. long_press on the "Join the conversation..." input bar (duration: 1500)
+5. Tap "Paste" in the tooltip
+6. Tap the blue send arrow
+7. screenshot → verify comment posted
 ```
 
 ### Watch Reels
@@ -294,19 +296,18 @@ Accessed via hamburger menu (≡) on Profile.
 ```
 1. Tap the DM tab (~310, 1280) in bottom nav
 2. Tap compose icon (pencil, top-right)
-3. type_text("recipient name") in search field
+3. copy_text_to_phone("recipient name") → long_press search field (1500ms) → tap "Paste"
 4. Tap the correct result
-5. Tap "Message..." input field
-6. type_text("your message")
-7. Tap return key to send
-8. screenshot → verify message sent
+5. copy_text_to_phone("your message") → long_press the "Message..." input field (1500ms) → tap "Paste"
+6. Tap return key to send
+7. screenshot → verify message sent
 ```
 
 ### Search for Content
 ```
 1. Tap the Search tab (~435, 1280) in bottom nav
-2. Tap the search bar at top
-3. type_text("search query")
+2. copy_text_to_phone("search query")
+3. long_press the search bar at top (duration: 1500) → tap "Paste"
 4. Results appear in real-time; tap a result
 ```
 
@@ -327,7 +328,6 @@ Accessed via hamburger menu (≡) on Profile.
 
 ## Tips and Gotchas
 
-- **iOS Paste/AutoFill popup**: First `type_text()` in any text field may trigger a popup instead of typing. Dismiss by tapping elsewhere, re-tap field, type again.
 - **Double-tap likes**: Double-tapping a post's media or a comment text will like it — be careful with accidental double-taps.
 - **Long-press on Reels pauses only** — it does NOT open a context menu (unlike feed posts).
 - **Return key sends DMs**: The return key on the keyboard sends messages — no separate Send button.
@@ -336,4 +336,3 @@ Accessed via hamburger menu (≡) on Profile.
 - **Back navigation**: Back arrow (top-left) or swipe right from left edge.
 - **Horizontal swipes navigate between tabs** — be careful near screen edges.
 - **App loading**: May take 1-2 seconds after opening or switching tabs.
-- **Phone selection may drop**: With multiple phones connected, re-run `select_phone` if you get a "Multiple phones connected" error.

@@ -123,18 +123,11 @@ Access by tapping the **list icon** (bottom-right, ~548, 1270).
 
 ### Adding a City
 
-1. Tap the **search bar** at the bottom (~260, 1238)
-2. Type the city name (note: `type_text()` may trigger a Paste/AutoFill popup — use direct keyboard key taps as fallback)
-3. Results appear as live auto-complete — tap to select
-4. City detail view opens — tap **"Add"** (top-right) to save
-
-**Keyboard Layout Reference (for direct key taps):**
-```
-Row 1 (y≈910):  Q(35) W(97) E(159) R(221) T(283) Y(345) U(407) I(462) O(528) P(590)
-Row 2 (y≈990):  A(62) S(124) D(186) F(248) G(310) H(372) J(434) K(496) L(558)
-Row 3 (y≈1050): shift(43) Z(124) X(186) C(248) V(310) B(372) N(434) M(496) ⌫(578)
-Row 4 (y≈1120): 123(77) [space](310) [Search](540)
-```
+1. `copy_text_to_phone("San Francisco")` to load the city name onto the clipboard
+2. `long_press(260, 1238, duration: 1500)` on the search bar at the bottom — this activates the field and shows the **Paste** tooltip
+3. Tap **"Paste"** in the tooltip
+4. Results appear as live auto-complete — tap to select
+5. City detail view opens — tap **"Add"** (top-right) to save
 
 ### Deleting a City
 
@@ -241,11 +234,12 @@ tap(310, 210)   # Tap desired city card
 
 ### Add a New City
 ```
-1. tap(548, 1270)  # Open city list
-2. Tap search bar at bottom
-3. Type city name
-4. Tap result from auto-complete
-5. Tap "Add" (top-right) to save
+1. tap(548, 1270)                                # Open city list
+2. copy_text_to_phone("San Francisco")           # Load city name onto clipboard
+3. long_press(260, 1238, duration: 1500)         # Activate search bar, show Paste tooltip
+4. Tap "Paste" in the tooltip
+5. Tap result from auto-complete
+6. Tap "Add" (top-right) to save
 ```
 
 ### Open the Weather Map
@@ -265,11 +259,10 @@ tap(310, 210)   # Tap desired city card
 ## Tips and Gotchas
 
 - **Background adapts to weather**: Cloudy skies show dark backgrounds, sunny days are brighter. This affects text readability in screenshots.
-- **`type_text()` quirks**: The Weather app's search field may not accept `type_text()` reliably. If a "Paste / AutoFill" popup appears, dismiss and use direct keyboard key taps as fallback.
+- **Typing into the search field**: Use the clipboard paste flow (`copy_text_to_phone` → `long_press` the search bar at 1500ms → tap "Paste" in the tooltip). Don't try to tap individual keyboard keys.
 - **Precipitation percentage**: Shown in cyan/teal text below weather icon in the 10-day forecast when rain is expected.
 - **"My Location"**: If location services are enabled, the first city may show "My Location" instead of a city name.
 - **All detail widgets are tappable**: Every section on the main view can be tapped to open a detailed chart/modal.
 - **Half-width widgets** are arranged in a 2-column grid.
 - **Scrolling**: Swipe up to scroll down. ~4 swipes from top reaches the bottom of the detail view.
-- **Phone selection may drop**: With multiple phones connected, re-run `select_phone` if you get a "Multiple phones connected" error.
 - **Health Information banner**: May occasionally appear as a popup — dismiss by tapping X.

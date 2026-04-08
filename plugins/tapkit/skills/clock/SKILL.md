@@ -106,26 +106,24 @@ The currently selected tab is highlighted in **orange text** with its icon fille
 - A text cursor appears **after the existing text** and the keyboard slides up
 - The default text "Alarm" is **real editable text**, not placeholder — you must clear it before typing a new label
 
-**How to set a custom label (recommended approach):**
-1. Tap the Label value text (right side) to activate the field — cursor appears after existing text
-2. **Clear the existing text** by tapping the **backspace key (⌫)** on the keyboard (bottom-right of the third keyboard row, ~584, 1078) once per character
-   - For the default "Alarm" text, tap backspace **5 times**
-   - When the field is empty, the placeholder "Alarm" appears in gray (this is just a placeholder, the field is actually empty)
-3. Use `type_text("Your Label")` to enter the new label text
-4. Tap the **blue checkmark button (✓)** on the keyboard (bottom-right, ~536, 1156) to confirm the label and dismiss the keyboard
+**How to set a custom label (Select All + Paste):**
 
-**Alternative approach (Paste method):**
-1. Tap the Label value text to activate the field
-2. Call `type_text("Your Label")` — this copies the text to the clipboard but does NOT type it into the field directly
-3. A **"Paste" popup** will appear near the top of the settings list (around the Repeat row area)
-4. Tap the **"Paste" button** in the popup to paste the text — this **replaces** the existing label text entirely
-5. Tap the **blue checkmark button (✓)** to confirm
+The default text "Alarm" is real editable text, so you need to replace it rather than just typing over it. Use the Select All + Paste flow:
+
+1. `copy_text_to_phone("Your Label")` to load the new label onto the clipboard
+2. Tap the Label value text (right side) to activate the field — cursor appears after existing text
+3. `double_tap` on the word "Alarm" in the field to select it
+4. Tap on an unhighlighted part of the Label row (a different spot from the selected word) — this shows the menu with **Select All**
+5. Tap **Select All** to highlight everything
+6. Tap **Paste** to replace the selected text with the clipboard contents
+7. Tap the **blue checkmark button (✓)** on the keyboard to confirm the label and dismiss the keyboard
+
+**To clear the Label field entirely**, follow the same flow but tap **Cut** instead of **Paste** in step 6.
 
 **Important warnings:**
-- **Do NOT call `type_text` without clearing first** (unless using the Paste method above) — `type_text` does not reliably type into the Label field when it contains existing text
 - **Do NOT use long-press** on the Label area — it may accidentally navigate to the Repeat screen or other adjacent rows
-- **Do NOT use triple-tap** to try to select all text — it may deselect or defocus the field
-- A small gray **(x) clear button** appears to the right of the label text during editing, but it is very small and difficult to tap precisely — **use backspace instead**
+- **Do NOT use triple-tap** to try to select all text — it may deselect or defocus the field. Use the double-tap + tap-on-unhighlighted-text pattern instead.
+- A small gray **(x) clear button** appears to the right of the label text during editing, but it is very small and difficult to tap precisely — **use Select All + Cut instead**
 - If you save with an empty label field, the alarm defaults to the label "Alarm"
 - The label appears below the time in the alarm list
 
@@ -334,9 +332,7 @@ The time picker on the Add/Edit Alarm screen uses three scrollable wheels:
 
 ## Tips and Gotchas
 
-- **iOS Paste/AutoFill popup**: First `type_text()` in any text field may trigger a popup instead of typing. Dismiss by tapping elsewhere, re-tap field, type again.
 - **The Clock app uses a dark theme** (black background, white text) by default.
 - **Time picker wheels** require vertical drag gestures — not taps.
 - **Back navigation**: Back arrow (top-left) or swipe right from left edge.
-- **Phone selection may drop**: With multiple phones connected, re-run `select_phone` if you get a "Multiple phones connected" error.
-- **Label field quirks**: The Label field in Add/Edit Alarm does not reliably accept `type_text()` — use the backspace + type or Paste method described above.
+- **Label field quirks**: The Label field in Add/Edit Alarm contains real editable text ("Alarm") by default — use the Select All + Paste flow described above to replace it.

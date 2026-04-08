@@ -267,10 +267,11 @@ No filter tabs, no message search — just people.
 1. Tap the Chats tab (3rd tab from left in bottom bar)
 2. screenshot → verify chat list visible
 3. Tap on the desired chat in the list
-4. Tap the "Message" text field at the bottom
-5. type_text("your message")
-6. Tap the send button (appears where microphone/camera was, bottom-right)
-7. screenshot → verify message sent
+4. copy_text_to_phone("your message")
+5. long_press(x, y, duration: 1500) on the "Message" text field at the bottom
+6. Tap "Paste" in the tooltip that appears above the field
+7. Tap the send button (appears where microphone/camera was, bottom-right)
+8. screenshot → verify message sent
 ```
 
 ### Start a New Message
@@ -279,7 +280,7 @@ No filter tabs, no message search — just people.
 2. Tap the compose button (pen icon, top-right) — NOT the camera button next to it
 3. screenshot → verify contact list / compose screen
 4. Search for or select a contact
-5. Tap the "Message" field → type_text("your message") → send
+5. copy_text_to_phone("your message") → long_press on the "Message" field (1500ms) → tap "Paste" → tap send
 ```
 
 ### Browse Chat Filters
@@ -303,15 +304,17 @@ No filter tabs, no message search — just people.
 ```
 1. Inside a chat, long_press on the message
 2. Tap "Reply" from the context menu
-3. type_text("your reply")
-4. Tap send
+3. copy_text_to_phone("your reply")
+4. long_press on the "Message" field (1500ms) → tap "Paste"
+5. Tap send
 ```
 
 ### Search Globally
 ```
 1. Tap the Search tab (5th/rightmost tab in bottom bar)
-2. Keyboard auto-focuses — just start typing with type_text("query")
-3. screenshot → verify results
+2. copy_text_to_phone("query")
+3. long_press on the search field (1500ms) → tap "Paste" in the tooltip
+4. screenshot → verify results
 ```
 
 ### Search Within a Group
@@ -319,8 +322,9 @@ No filter tabs, no message search — just people.
 1. Open the group chat
 2. Tap the group name in the header to open Group Info
 3. Tap the "search" action button
-4. type_text("search query")
-5. screenshot → verify results
+4. copy_text_to_phone("search query")
+5. long_press on the "Search this chat" field (1500ms) → tap "Paste"
+6. screenshot → verify results
 ```
 
 ### View Group Info
@@ -337,7 +341,6 @@ No filter tabs, no message search — just people.
 - **The back button shows unread count** — the "< 689" back button in chats shows the total unread count for the chat list. Useful for knowing how many unreads exist without going back.
 - **Muted vs unmuted unread badges** — Blue badges = unmuted unreads (important). Gray badges = muted unreads. Prioritize blue badges.
 - **Filter tabs are horizontally scrollable** — "All" and "Personal" are visible by default, but there can be 8+ tabs. Swipe the tab row to find custom folders.
-- **Phone selection may drop** — When multiple phones are connected, the selection can reset between actions. Always re-select with `select_phone` if you get a "Multiple phones connected" error.
 - **Bot chats have a unique "≡ Menu" button** — No other chat type has this. It's specific to bot interactions and opens the bot's command palette.
 - **Sponsored ads can appear** in bot chats — They have a "what's this?" label and X dismiss button. Dismiss these to avoid confusion.
 - **The Search tab** immediately opens the keyboard and shows FAQ by default. Just start typing — no need to tap the search field first since it auto-focuses.

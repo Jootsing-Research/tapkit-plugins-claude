@@ -51,10 +51,11 @@ Tap the Search tab (3rd icon) to open search.
 - **Keyboard** appears automatically with blue "search" button
 
 ### Search Flow
-1. Tap the search bar (if not already focused)
-2. Type query with `type_text`
-3. **Autocomplete results appear immediately** — showing matching restaurants (with icons) and search suggestions
-4. Tap a restaurant name to go directly to it, OR tap a suggestion to see full results
+1. `copy_text_to_phone("query")` to load the search text onto the clipboard
+2. `long_press` the search bar (~1500ms) to activate it and bring up the **Paste** tooltip
+3. Tap **"Paste"** in the tooltip
+4. **Autocomplete results appear immediately** — showing matching restaurants (with icons) and search suggestions
+5. Tap a restaurant name to go directly to it, OR tap a suggestion to see full results
 5. **Full results page** has filter tabs: All, Restaurants, Grocery, Retail, Alcohol
 6. Filter pills: Uber One, Offers, Under 30 min, Best overall
 7. **Dish suggestion circles** appear at top (e.g., "Pad Thai", "Mango Sticky Rice")

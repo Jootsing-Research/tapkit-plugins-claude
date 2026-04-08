@@ -99,7 +99,7 @@ Opened by tapping the comment bubble icon. Appears as a bottom half-sheet.
 - **Below text field**: emoji icon, @ mention button, send button (pink/red arrow)
 - Keyboard appears when text field is tapped
 
-To post a comment: tap "Add comment..." → `type_text("your comment")` → tap the send button.
+To post a comment: `copy_text_to_phone("your comment")` → `long_press` on the "Add comment..." field (duration: 1500) → tap **"Paste"** in the tooltip that appears → tap the send button.
 
 To close: tap the **X** in the header, or swipe down on the sheet.
 
@@ -598,7 +598,7 @@ When backing out of the editing screen with unsaved content, a menu appears:
 - **AI rewrite**: The publishing page has an "AI rewrite" tool that can rewrite your caption using AI — useful for improving engagement.
 - **Drafts are local**: Saved drafts appear on your Profile tab in a private Drafts section. They are not published until you manually post them.
 - **Don't accidentally post**: The red "Post" button publishes immediately with no confirmation dialog. Double-check all details before tapping it.
-- **Publishing page text entry quirk**: `type_text` may not directly insert text into TikTok's description field. Instead, the text goes to the device clipboard. Workaround: tap the description field to trigger the iOS **Paste / Writing Tools / AutoFill** popup, then tap **"Paste"** to insert the text. This is reliable.
+- **Publishing page text entry**: Use the standard clipboard paste flow for the title and description fields. `copy_text_to_phone("...")` → `long_press` on the field (duration: 1500) → tap **"Paste"** in the tooltip that appears above the field. This is reliable.
 - **Maximum 5 hashtags per post**: TikTok enforces a limit of 5 hashtags. If you include more, extras are auto-removed with a toast message "Maximum 5 hashtags. 2 removed." Plan your hashtags accordingly.
 - **Multi-select: tap selector circles, NOT image centers**: In multi-select mode, tapping the center of a photo opens a single-image preview instead of selecting it. You must tap the **circle selector** in the upper-right corner of the thumbnail.
 - **Sound picker "For You" tab is contextual**: The For You tab in the sound picker shows personalized/contextual suggestions. The algorithm matches sounds to your content (e.g., bird photos surface "Three Little Birds").
@@ -625,10 +625,11 @@ When backing out of the editing screen with unsaved content, a menu appears:
 ```
 1. Tap the comment bubble icon on the right side
 2. screenshot → verify comment section opened
-3. Tap "Add comment..." text field
-4. type_text("your comment")
-5. Tap the send button (pink arrow, bottom-right of input area)
-6. screenshot → verify comment posted
+3. copy_text_to_phone("your comment")
+4. long_press on "Add comment..." text field (duration: 1500)
+5. Tap "Paste" in the tooltip that appears above the field
+6. Tap the send button (pink arrow, bottom-right of input area)
+7. screenshot → verify comment posted
 ```
 
 ### Follow a Creator
@@ -650,10 +651,12 @@ When backing out of the editing screen with unsaved content, a menu appears:
 ```
 1. Tap the search icon (magnifying glass) in the top bar (far right)
 2. screenshot → search page appears
-3. Tap the search field → type_text("search query")
-4. screenshot → verify autocomplete suggestions appear
-5. Tap blue "search" button on keyboard OR tap a suggestion
-6. screenshot → verify results page with tabs
+3. copy_text_to_phone("search query")
+4. long_press on the search field (duration: 1500)
+5. Tap "Paste" in the tooltip that appears above the field
+6. screenshot → verify autocomplete suggestions appear
+7. Tap blue "search" button on keyboard OR tap a suggestion
+8. screenshot → verify results page with tabs
 ```
 
 ### Filter Search Results
@@ -739,5 +742,4 @@ When backing out of the editing screen with unsaved content, a menu appears:
 - **Comment section vs heart button**: These are close together on the right side. If you're hitting comments when trying to like, aim higher. If you're liking when trying to comment, aim lower.
 - **Single tap pauses/plays**: Tapping the center of the video toggles playback. This means the video may be paused after you tap to dismiss overlays. The video auto-resumes when you swipe to the next one.
 - **Swipe from center**: Always swipe up/down from the center-left area of the screen to avoid hitting right-side buttons or triggering edge gestures.
-- **Phone deselection**: With multiple phones connected, the phone may deselect between tool calls. If you get a "multiple phones connected" error, re-run `select_phone` with the phone ID and retry.
 - **Video load time**: After swiping to a new video, it takes 1-2 seconds to load. If the screenshot looks transitional (two videos visible), take another screenshot after a moment.
