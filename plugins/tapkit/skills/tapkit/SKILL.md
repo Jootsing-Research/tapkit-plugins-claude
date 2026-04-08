@@ -9,7 +9,15 @@ You have access to a physical iPhone through TapKit MCP tools. You can see the s
 
 ## Setup
 
-If only one phone is connected, it's auto-selected — just start using tools directly (e.g. `screenshot`). If multiple phones are connected, call `list_phones` then pass `phone_id` explicitly on **every tool call**. The `select_phone` tool does not persist reliably across calls.
+**Every tool requires a `phone_id`.** Always start by calling `list_phones` to discover available phones — it returns IDs, connection status, and screen dimensions. Then pass the `phone_id` on every subsequent tool call.
+
+```
+list_phones → pick a phone_id → use phone_id on every call
+```
+
+If a phone hasn't been set up for control yet, call `enable_switch_control(phone_id)` first — this enables Switch Control on the Mac for that phone. You only need to do this once per session.
+
+**`select_phone`** is optional. It eagerly switches Switch Control to a phone, but actions on an inactive phone will auto-activate it. Only use `select_phone` if you want to pre-switch before a long sequence of actions on a specific phone.
 
 ## Use Tools First, Navigate Second
 
@@ -36,7 +44,7 @@ Your workflow is always: **screenshot → look → act → screenshot to verify*
 
 ## Coordinate System
 
-Screenshots are resized so you see them at the same resolution as the coordinate space. **Coordinates map 1:1 with screenshot pixels** — if an element is at pixel (300, 672) in the image, tap (300, 672). The dimensions are returned by `select_phone` and `get_phone_info` (typically around 618x1344).
+Screenshots are resized so you see them at the same resolution as the coordinate space. **Coordinates map 1:1 with screenshot pixels** — if an element is at pixel (300, 672) in the image, tap (300, 672). Screen dimensions are returned by `list_phones` (typically around 618x1344).
 
 - (0, 0) is the top-left corner
 - x increases rightward, y increases downward
@@ -61,10 +69,15 @@ Screenshots are resized so you see them at the same resolution as the coordinate
 ### Input
 - `copy_text_to_phone(text)` — Load text onto the phone's clipboard for pasting into text fields (see **Text Input** section below)
 - `activate_siri` — Trigger Siri voice assistant
+- `escape` — Dismiss keyboards, alerts, popups, or modal screens
 
 ### Device
+- `list_phones` — List all phones with connection status, IDs, and dimensions. **Call this first.**
+- `select_phone(phone_id)` — Eagerly switch Switch Control to a phone (optional — auto-activates on use)
+- `enable_switch_control(phone_id)` — Enable Switch Control on the Mac for a phone (required once per session)
 - `screenshot` — Get current screen as an image
-- `get_phone_info` — Get screen dimensions and device name
+- `get_phone_status(phone_id)` — Get real-time status: connection, Switch Control, screen lock, streaming, dimensions
+- `get_phone_info(phone_id)` — *(Deprecated — use `get_phone_status` instead.)* Returns screen dimensions and phone name
 - `lock` / `unlock` — Lock or unlock the screen
 - `volume_up` / `volume_down` — Volume controls
 - `run_shortcut(index)` — Run an iOS Shortcut by its index number
@@ -76,7 +89,7 @@ Screenshots are resized so you see them at the same resolution as the coordinate
 - **Dismiss a modal/popup**: look for "X", "Cancel", "Done", or tap outside it
 - **Pull to refresh**: `drag(300, 200, 300, 600)` (drag down from top of content area)
 - **Switch apps**: `swipe(300, 1300, "up")` (swipe up from bottom)
-- **Close keyboard**: tap anywhere outside the keyboard, or `press_home`
+- **Close keyboard**: call `escape`, tap anywhere outside the keyboard, or `press_home`
 - **Tab bars** at the bottom of apps are the main navigation — tap the icons to switch sections
 - **iOS alerts** (permissions, confirmations) appear as centered popups — tap "Allow", "OK", etc.
 
