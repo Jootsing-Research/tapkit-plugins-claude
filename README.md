@@ -4,7 +4,7 @@ Control a physical iPhone from Claude. Take screenshots, tap, swipe, type, and n
 
 ## Installation
 
-You'll need the [TapKit Mac app](https://tapkit.ai) running with a connected iPhone (Switch Control enabled). Then follow the docs for whichever Claude you're using:
+You'll need the [TapKit Mac app](https://tapkit.ai) running with a connected iPhone. Then follow the docs for whichever Claude you're using:
 
 - **Claude Code (CLI):** [docs.tapkit.ai/integrations/claude-code](https://docs.tapkit.ai/integrations/claude-code)
 - **Claude desktop app:** [docs.tapkit.ai/integrations/claude-app](https://docs.tapkit.ai/integrations/claude-app)
